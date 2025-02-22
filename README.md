@@ -119,15 +119,15 @@ Here is the breakdown of the file structure in this project:
 
 ```bash
 /coffee-shop-website
-  ├── index.html             # The main HTML file with the structure of the website
-  ├── style.css              # The CSS file for all the styling and responsive design
-  ├── main.js                # JavaScript for interactive features like menu toggle and button actions
-  ├── images/                # Folder containing all the images used in the project (coffee, beans, cups, etc.)
-  ├── README.md              # This markdown file with detailed documentation
-  ├── LICENSE                # The open-source license (MIT License) for contributing
-  └── libs/                  # Folder containing external libraries (SwiperJS, ScrollReveal)
-      ├── swiper.min.js      # SwiperJS library for image sliders
-      └── scrollreveal.min.js# ScrollReveal library for scroll animations
+  ├── index.html               # The main HTML file with the structure of the website
+  ├── style.css                # The CSS file for all the styling and responsive design
+  ├── main.js                  # JavaScript for interactive features like menu toggle and button actions
+  ├── images/                  # Folder containing all the images used in the project (coffee, beans, cups, etc.)
+  ├── README.md                # This markdown file with detailed documentation
+  ├── LICENSE                  # The open-source license (MIT License) for contributing
+  └── libs/                    # Folder containing external libraries (SwiperJS, ScrollReveal)
+      ├── swiper.min.js        # SwiperJS library for image sliders
+      └── scrollreveal.min.js  # ScrollReveal library for scroll animations
 ```
 
 ---
