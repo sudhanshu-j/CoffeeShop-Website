@@ -89,7 +89,7 @@ To set up the Coffee Shop Website on your local machine, follow these steps:
 Use Git to clone the repository to your local machine. Open your terminal and run:
 
 ```bash
-git clone https://github.com/your-username/coffee-shop-website.git
+git clone https://github.com/sudhanshu-j/coffee-shop-website.git
 ```
 
 ### Step 2: Navigate to the project folder.
