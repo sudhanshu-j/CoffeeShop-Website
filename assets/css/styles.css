@@ -1,0 +1,1397 @@
+/*=============== GOOGLE FONTS ===============*/
+/* Import Montserrat and Saira font families from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Saira:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /* General variable for header height */
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /* Color mode HSL (hue, saturation, lightness) */
+  --first-color: hsl(166, 80%, 40%); /* Main accent color */
+  --first-color-alt: hsl(166, 78%, 38%); /* Alternative for accent color */
+  --title-color: hsl(166, 95%, 15%); /* Title color */
+  --text-color: hsl(166, 12%, 40%); /* Text color */
+  --white-color: hsl(166, 100%, 99%); /* White color */
+  --dark-color: hsl(166, 95%, 12%); /* Dark color */
+  --body-color: hsl(166, 56%, 18%); /* Background color for body */
+  --body-white-color: hsl(0, 0%, 100%); /* White background color */
+  --body-first-color: hsl(166, 80%, 40%); /* Used for body as primary color */
+
+  /*========== Font and typography ==========*/
+  /* Font sizes: 1rem = 16px, 0.5rem = 8px */
+  --body-font: "Montserrat", serif; /* Primary body font */
+  --second-font: "Saira", serif; /* Secondary font */
+  --biggest-font-size: 4.5rem; /* Largest font size */
+  --big-font-size: 2.5rem; /* Large font size */
+  --h1-font-size: 1.5rem; /* Font size for h1 elements */
+  --h2-font-size: 1.25rem; /* Font size for h2 elements */
+  --h3-font-size: 1rem; /* Font size for h3 elements */
+  --normal-font-size: 0.938rem; /* Normal font size for body text */
+  --small-font-size: 0.813rem; /* Small font size */
+
+  /*========== Font weight ==========*/
+  --font-regular: 400; /* Regular font weight */
+  --font-medium: 500; /* Medium font weight */
+  --font-semi-bold: 600; /* Semi-bold font weight */
+
+  /*========== z index ==========*/
+  --z-tooltip: 10; /* Tooltip z-index */
+  --z-fixed: 100; /* Fixed elements z-index */
+}
+
+/*========== Responsive typography ==========*/
+/* Media query for screens wider than 1150px */
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 9.5rem; /* Adjusted font size for larger screens */
+    --big-font-size: 4rem; /* Adjusted font size */
+    --h1-font-size: 2rem; /* Adjusted font size for h1 */
+    --h2-font-size: 1.5rem; /* Adjusted font size for h2 */
+    --h3-font-size: 1.25rem; /* Adjusted font size for h3 */
+    --normal-font-size: 1rem; /* Adjusted normal font size */
+    --small-font-size: 0.875rem; /* Adjusted small font size */
+  }
+}
+
+/*=============== BASE ===============*/
+/* Universal styles for all elements */
+* {
+  box-sizing: border-box; /* Ensures padding and borders are included in element’s total width and height */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for the page */
+}
+
+/* Apply base font and font size to body, input, and button */
+input,
+button,
+body {
+  font-family: var(--body-font); /* Uses the body font for text */
+  font-size: var(--normal-font-size); /* Uses the normal font size for text */
+}
+
+body {
+  background-color: var(
+    --body-color
+  ); /* Set background color to the defined body color */
+  color: var(--text-color); /* Set text color to the defined text color */
+}
+
+/* Style input and button elements */
+input,
+button {
+  outline: none; /* Remove default outline on focus */
+  border: none; /* Remove default border */
+}
+
+/* Header elements (h1, h2, h3, h4) */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--second-font); /* Use the second font for headings */
+  font-weight: var(--font-medium); /* Medium font weight */
+  line-height: 110%; /* Line height for readability */
+}
+
+/* Remove bullet points from lists */
+ul {
+  list-style: none; /* Removes the default list style */
+}
+
+/* Remove underline from links */
+a {
+  text-decoration: none; /* Removes the default underline from links */
+}
+
+/* Make images responsive */
+img {
+  display: block; /* Prevents inline block behavior */
+  max-width: 100%; /* Ensures the image doesn't exceed its container width */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+/* Container to limit maximum width */
+.container {
+  max-width: 1120px; /* Set max-width to 1120px */
+  margin-inline: 1.5rem; /* Adds space on both sides */
+}
+
+/* Grid layout system */
+.grid {
+  display: grid; /* Defines a grid layout */
+  gap: 1.5rem; /* Adds space between grid items */
+}
+
+/* Padding for sections */
+.section {
+  padding-block: 5rem 4rem; /* Padding above and below sections */
+}
+
+/* Section title styling */
+.section-title {
+  text-align: center; /* Center aligns the title */
+  font-size: var(--big-font-size); /* Sets the font size for the title */
+  font-weight: var(--font-semi-bold); /* Semi-bold font weight */
+  margin-bottom: 2.5rem; /* Adds bottom margin */
+}
+
+/* Main container overflow hidden */
+.main {
+  overflow: hidden; /* Prevents content overflow */
+}
+
+/*=============== HEADER & NAV ===============*/
+/* Header styling */
+.header {
+  position: fixed; /* Fixes the header at the top of the page */
+  width: 100%; /* Makes the header full-width */
+  top: 0; /* Aligns it at the top */
+  left: 0; /* Aligns it to the left */
+  background-color: var(
+    --body-color
+  ); /* Sets background color for the header */
+  z-index: var(--z-fixed); /* Ensures the header stays on top */
+  transition: box-shadow 0.5s; /* Adds a smooth transition for box-shadow */
+}
+
+/* Navigation bar styling */
+.nav {
+  position: relative; /* Allows positioning of child elements */
+  height: var(--header-height); /* Sets the height of the nav bar */
+  display: flex; /* Uses flexbox for layout */
+  justify-content: space-between; /* Distributes space between nav items */
+  align-items: center; /* Centers items vertically */
+}
+
+/* Logo styling */
+.nav-logo {
+  color: var(--white-color); /* White color for the logo */
+  font-family: var(--second-font); /* Uses the second font */
+  font-weight: var(--font-semi-bold); /* Semi-bold font weight */
+  transition: color 0.5s; /* Adds a smooth color transition */
+}
+
+/* Hover effect on logo */
+.nav-logo:hover {
+  color: var(--first-color); /* Changes the color on hover */
+}
+
+/* Nav toggle and close button styling */
+.nav-close,
+.nav-toggle {
+  display: flex; /* Makes buttons appear as flex containers */
+  color: var(--white-color); /* White color */
+  font-size: 1.5rem; /* Font size for the buttons */
+  cursor: pointer; /* Changes cursor to pointer */
+}
+
+/* Mobile navigation menu */
+@media screen and (max-width: 1150px) {
+  .nav-menu {
+    position: fixed; /* Fixes the menu to the top */
+    top: -120%; /* Initially positions it off-screen */
+    left: 0; /* Aligns it to the left */
+    background-color: var(--body-color); /* Sets background color */
+    width: 100%; /* Makes the menu full width */
+    padding-block: 4rem; /* Adds padding for the top and bottom */
+    box-shadow: 0 8px 16px hsl(166, 85%, 8%, 0.3); /* Adds shadow for visual effect */
+    transition: top 0.5s; /* Smooth transition for sliding the menu in */
+  }
+}
+
+/* Styling for nav list */
+.nav-list {
+  text-align: center; /* Centers the items */
+  display: flex; /* Uses flexbox layout */
+  flex-direction: column; /* Arranges items in a column */
+  row-gap: 2rem; /* Adds space between items */
+}
+
+/* Styling for navigation links */
+.nav-link {
+  color: var(--white-color); /* White color for links */
+  font: var(--font-medium) var(--h1-font-size) var(--second-font); /* Sets font weight, size, and font */
+  line-height: 110%; /* Line height for readability */
+  transition: color 0.5s; /* Smooth color transition */
+}
+
+/* Hover effect on nav links */
+.nav-link:hover {
+  color: var(--first-color); /* Changes color on hover */
+}
+
+/* Close button position in mobile nav */
+.nav-close {
+  position: absolute; /* Positions the button absolutely */
+  top: 1rem; /* 1rem from the top */
+  right: 1.5rem; /* 1.5rem from the right */
+}
+
+/* Menu visibility when active */
+.show-menu {
+  top: 0; /* Moves the menu to the visible area */
+}
+
+/* Add shadow effect to header when scrolled */
+.scroll-header {
+  box-shadow: 0 8px 16px hsl(166, 85%, 8%, 0.3); /* Adds shadow when header is scrolled */
+}
+
+/* Active link styling */
+.active-link {
+  color: var(--first-color); /* Changes color of active link */
+}
+
+/*=============== HOME ===============*/
+.home-container {
+  position: relative; /* Positions the container relatively within its parent */
+  padding-top: 3rem; /* Adds top padding of 3rem to the container */
+  row-gap: 0; /* No gap between rows */
+}
+
+.home-title {
+  color: var(
+    --white-color
+  ); /* Sets the text color to the white color defined in the root */
+  font-size: var(
+    --biggest-font-size
+  ); /* Uses the biggest font size from the root */
+  font-weight: var(
+    --font-semi-bold
+  ); /* Sets the font weight to semi-bold from the root */
+  text-align: center; /* Centers the text horizontally */
+}
+
+.home-images {
+  position: relative; /* Positions the image container relatively within its parent */
+  display: grid; /* Uses CSS grid to display the images */
+  justify-items: center; /* Centers the items horizontally inside the grid */
+  justify-self: center; /* Centers the image container itself */
+}
+
+.home-shape {
+  width: 280px; /* Sets the width to 280px */
+  height: 280px; /* Sets the height to 280px */
+  background-color: var(
+    --first-color
+  ); /* Sets the background color to the first color defined in the root */
+  border-radius: 50%; /* Makes the shape a circle */
+  clip-path: inset(50% 0 0 0); /* Clips the shape in half horizontally */
+}
+
+.home-images img {
+  position: absolute; /* Positions the images absolutely within the container */
+}
+
+.home-coffee {
+  width: 160px; /* Sets the width of the coffee image to 160px */
+  top: -3.5rem; /* Moves the coffee image 3.5rem up */
+  rotate: 10deg; /* Rotates the coffee image 10 degrees */
+}
+
+.home-splash {
+  max-width: initial; /* Resets the max-width */
+  width: 350px; /* Sets the width to 350px */
+  rotate: 10deg; /* Rotates the splash image 10 degrees */
+  left: -3rem; /* Moves the splash image 3rem to the left */
+  bottom: 0.5rem; /* Moves the splash image 0.5rem up from the bottom */
+}
+
+.home-bean-1,
+.home-bean-2 {
+  width: 40px; /* Sets the width of both bean images to 40px */
+}
+
+.home-bean-1 {
+  top: 1.5rem; /* Moves the first bean image 1.5rem down */
+  left: 1.5rem; /* Moves the first bean image 1.5rem to the right */
+}
+
+.home-bean-2 {
+  right: 3.5rem; /* Moves the second bean image 3.5rem to the left */
+  bottom: 6.5rem; /* Moves the second bean image 6.5rem up */
+  rotate: -90deg; /* Rotates the second bean image -90 degrees */
+  filter: blur(
+    2px
+  ); /* Adds a blur effect with 2px radius to the second bean image */
+}
+
+.home-ice-1 {
+  width: 50px; /* Sets the width of the first ice image to 50px */
+  left: 1.5rem; /* Moves the ice image 1.5rem to the right */
+  bottom: 3rem; /* Moves the ice image 3rem up from the bottom */
+}
+
+.home-ice-2 {
+  width: 40px; /* Sets the width of the second ice image to 40px */
+  top: 4rem; /* Moves the second ice image 4rem down from the top */
+  right: 1.25rem; /* Moves the second ice image 1.25rem to the left */
+  rotate: 60deg; /* Rotates the second ice image 60 degrees */
+}
+
+.home-leaf {
+  width: 50px; /* Sets the width of the leaf image to 50px */
+  right: 6rem; /* Moves the leaf image 6rem to the left */
+  bottom: -1rem; /* Moves the leaf image 1rem down */
+  rotate: -15deg; /* Rotates the leaf image -15 degrees */
+}
+
+.home-sticker {
+  position: absolute; /* Positions the sticker absolutely within the container */
+  width: 50px; /* Sets the width of the sticker to 50px */
+  right: 0.5rem; /* Moves the sticker 0.5rem to the left */
+  top: 25rem; /* Moves the sticker 25rem down from the top */
+  rotate: 15deg; /* Rotates the sticker 15 degrees */
+}
+
+.home-data {
+  margin-top: 2.5rem; /* Adds 2.5rem of top margin to the home data section */
+  text-align: center; /* Centers the text horizontally */
+}
+
+.home-description {
+  color: var(--white-color); /* Sets the text color to white */
+  margin-bottom: 1.5rem; /* Adds 1.5rem of bottom margin */
+}
+
+/*=============== BUTTON ===============*/
+
+.button {
+  display: inline-flex; /* Makes the button an inline flex container */
+  justify-content: center; /* Centers the button's content horizontally */
+  background-color: var(
+    --first-color
+  ); /* Sets the background color of the button */
+  color: var(--white-color); /* Sets the text color of the button to white */
+  padding: 1rem 2rem; /* Adds 1rem of padding on top and bottom, and 2rem on left and right */
+  font-weight: var(--font-semi-bold); /* Sets the font weight to semi-bold */
+  cursor: pointer; /* Changes the cursor to pointer on hover */
+  transition: background 0.5s, box-shadow 0.5s; /* Adds transition effects for background and box-shadow */
+}
+
+.button:hover {
+  background-color: var(
+    --first-color-alt
+  ); /* Changes the background color on hover */
+  box-shadow: 0 8px 24px hsl(166, 85%, 8%, 0.3); /* Adds a box shadow effect on hover */
+}
+
+.button-dark {
+  background-color: var(
+    --dark-color
+  ); /* Changes the background color for dark buttons */
+}
+
+.button-dark:hover {
+  background-color: var(
+    --dark-color
+  ); /* Keeps the dark background color when hovered */
+}
+
+/*=============== POPULAR ===============*/
+
+.popular {
+  background-color: var(
+    --body-white-color
+  ); /* Sets the background color to white */
+}
+
+.popular .section-title {
+  color: var(
+    --title-color
+  ); /* Sets the color of the section title to the defined title color */
+}
+
+.popular .popular-swiper {
+  padding-top: 1.5rem; /* Adds 1.5rem padding at the top */
+}
+
+.popular .popular-card {
+  width: 270px; /* Sets the width of the card to 270px */
+  display: grid; /* Uses grid layout for the popular card */
+  row-gap: 1.5rem; /* Adds 1.5rem gap between rows */
+}
+
+.popular .popular-images {
+  position: relative; /* Positions the images relative to the container */
+  display: grid; /* Uses CSS grid to display images */
+  justify-items: center; /* Centers the items horizontally inside the grid */
+  justify-self: center; /* Centers the image container itself */
+}
+
+.popular .popular-shape {
+  width: 195px; /* Sets the shape width to 195px */
+  height: 195px; /* Sets the shape height to 195px */
+  background-color: var(
+    --first-color
+  ); /* Sets the background color to the first color */
+  border-radius: 50%; /* Makes the shape a circle */
+  clip-path: inset(50% 0 0 0); /* Clips the shape in half horizontally */
+}
+
+.popular .popular-images img {
+  position: absolute; /* Positions the images absolutely within the container */
+}
+
+.popular .popular-coffee {
+  width: 130px; /* Sets the coffee image width to 130px */
+  top: -1.5rem; /* Moves the coffee image 1.5rem up */
+}
+
+.popular .popular-bean-1 {
+  width: 30px; /* Sets the width of the first bean image to 30px */
+  top: 3rem; /* Moves the bean image 3rem down */
+  left: 0.5rem; /* Moves the bean image 0.5rem to the right */
+  transition: transform 0.5s 0.2s; /* Adds a transition effect for the bean image */
+}
+
+.popular .popular-bean-2 {
+  width: 20px; /* Sets the width of the second bean image to 20px */
+  right: 2rem; /* Moves the second bean image 2rem to the left */
+  bottom: 2rem; /* Moves the second bean image 2rem up */
+  rotate: 75deg; /* Rotates the second bean image 75 degrees */
+  filter: blur(2px); /* Adds a blur effect with 2px radius */
+  transition: transform 0.5s 0.2s; /* Adds a transition effect for the second bean image */
+}
+
+.popular .popular-data {
+  text-align: center; /* Centers the text inside the popular data */
+}
+
+.popular-name {
+  font-size: var(--h1-font-size); /* Sets the font size of the popular name */
+  color: var(--title-color); /* Sets the text color to the title color */
+  margin-bottom: 0.5rem; /* Adds 0.5rem of bottom margin */
+}
+
+.popular-description {
+  margin-bottom: 1.5rem; /* Adds 1.5rem of bottom margin */
+}
+
+.popular-card:hover .popular-bean-1 {
+  transform: translate(
+    -0.5rem,
+    -0.25rem
+  ); /* Moves the first bean image on hover */
+}
+
+.popular-card:hover .popular-bean-2 {
+  transform: translate(
+    0.5rem,
+    -0.25rem
+  ); /* Moves the second bean image on hover */
+}
+
+/* Swiper class */
+.swiper {
+  overflow: visible; /* Allows the content to overflow */
+  margin-inline: initial; /* Resets the inline margin */
+}
+
+/*=============== ABOUT ===============*/
+
+.about-container {
+  row-gap: 3rem; /* Adds 3rem gap between rows */
+}
+
+.about-data {
+  text-align: center; /* Centers the text inside the about data */
+}
+
+.about .section-title,
+.about-description {
+  color: var(--white-color); /* Sets the text color to white */
+  margin-bottom: 1.5rem; /* Adds 1.5rem of bottom margin */
+}
+
+.about-images {
+  position: relative; /* Positions the images relative to the container */
+  display: grid; /* Uses grid layout for the images */
+  place-items: center; /* Centers the items inside the grid */
+  justify-self: center; /* Centers the image container itself */
+}
+
+.about-shape {
+  width: 300px; /* Sets the shape width to 300px */
+  height: 300px; /* Sets the shape height to 300px */
+  background-color: var(
+    --first-color
+  ); /* Sets the background color to the first color */
+  border-radius: 50%; /* Makes the shape a circle */
+}
+
+.about-images img {
+  position: absolute; /* Positions the images absolutely within the container */
+}
+
+.about-coffee {
+  width: 280px; /* Sets the coffee image width to 280px */
+  filter: drop-shadow(
+    0 8px 16px hsla(166, 85%, 8%, 0.5)
+  ); /* Applies a drop shadow effect */
+}
+
+.about-leaf-1,
+.about-leaf-2 {
+  width: 50px; /* Sets the width of both leaf images to 50px */
+}
+
+.about-leaf-1 {
+  top: 0.5rem; /* Moves the first leaf image 0.5rem down */
+  left: 3.5rem; /* Moves the first leaf image 3.5rem to the right */
+  rotate: -105deg; /* Rotates the first leaf image -105 degrees */
+}
+
+.about-leaf-2 {
+  top: 7.75rem; /* Moves the second leaf image 7.75rem down */
+  right: 2.5rem; /* Moves the second leaf image 2.5rem to the left */
+  rotate: -15deg; /* Rotates the second leaf image -15 degrees */
+}
+
+/*=============== PRODUCTS ===============*/
+
+.products {
+  background-color: var(
+    --body-first-color
+  ); /* Set background color for the products section */
+}
+
+.products .section-title {
+  color: var(--dark-color); /* Set the color for the section title */
+}
+
+.products-container {
+  grid-template-columns: repeat(
+    2,
+    1fr
+  ); /* Create a two-column grid for the products */
+}
+
+.product-card {
+  position: relative; /* Set position relative for the product card */
+  background-color: var(
+    --dark-color
+  ); /* Set background color for the product card */
+  padding: 1rem 0.5rem 1.25rem; /* Add padding inside the product card */
+}
+
+.product-images {
+  position: relative; /* Set position relative for the product images */
+  display: grid; /* Use grid layout */
+  justify-items: center; /* Center items horizontally */
+  justify-self: center; /* Center the container itself */
+}
+
+.product-shape {
+  width: 120px; /* Set the width of the shape */
+  height: 120px; /* Set the height of the shape */
+  background-color: var(
+    --first-color
+  ); /* Set the background color for the shape */
+  border-radius: 50%; /* Create a circular shape */
+  clip-path: inset(50% 0 0 0); /* Clip the shape into a half-circle */
+}
+
+.product-images img {
+  position: absolute; /* Position the images absolutely within the container */
+}
+
+.product-coffee {
+  width: 80px; /* Set width of the coffee image */
+  top: 0; /* Align the coffee image to the top of its container */
+  transition: transform 0.5s; /* Add transition effect to the transform property */
+}
+
+.product-ice-1 {
+  width: 30px; /* Set width for the first ice image */
+  left: 0.5rem; /* Position the ice image from the left */
+  bottom: 0; /* Position the ice image at the bottom */
+  transition: transform 0.5s 0.2s; /* Add transition effect with delay */
+}
+
+.product-ice-2 {
+  width: 20px; /* Set width for the second ice image */
+  top: 3.25rem; /* Position the ice image from the top */
+  right: 0.75rem; /* Position the ice image from the right */
+  rotate: 60deg; /* Rotate the ice image by 60 degrees */
+  transition: transform 0.5s 0.2s; /* Add transition effect with delay */
+}
+
+.product-data {
+  margin-top: 1.25rem; /* Add margin to the top of product data */
+}
+
+.product-name {
+  font-size: var(--h3-font-size); /* Set font size for the product name */
+  color: var(--white-color); /* Set color for the product name */
+  margin-bottom: 0.75rem; /* Add margin below the product name */
+}
+
+.product-price {
+  color: var(--first-color); /* Set color for the product price */
+  font-size: var(--h3-font-size); /* Set font size for the product price */
+  font-weight: var(--font-medium); /* Set the font weight for the price */
+}
+
+.product-button {
+  position: absolute; /* Position the button absolutely within the product card */
+  right: 0.5rem; /* Position button to the right */
+  bottom: 1.25rem; /* Position button at the bottom */
+  width: 32px; /* Set button width */
+  height: 32px; /* Set button height */
+  background-color: var(
+    --first-color
+  ); /* Set background color for the button */
+  color: var(--dark-color); /* Set color for the button text */
+  font-size: 1.5rem; /* Set font size for the button text */
+  border-radius: 50%; /* Create a circular button */
+  cursor: pointer; /* Change cursor to pointer when hovering */
+  box-shadow: 0 4px 8px hsla(166, 85%, 8%, 0.4); /* Add shadow effect */
+  display: grid; /* Display the button using grid */
+  place-items: center; /* Center the button text */
+}
+
+.product-card:hover .product-coffee {
+  transform: translateY(-0.25rem); /* Apply a slight vertical move on hover */
+}
+
+.product-card:hover .product-ice-1 {
+  transform: translate(
+    -0.25rem,
+    0.25rem
+  ); /* Apply a slight move to the ice image on hover */
+}
+
+.product-card:hover .product-ice-2 {
+  transform: translate(
+    -0.5rem,
+    -0.5rem
+  ); /* Apply a slight move to the second ice image on hover */
+}
+
+/*=============== CONTACT ===============*/
+
+.contact .section-title {
+  color: var(--white-color); /* Set color for the contact section title */
+}
+
+.contact-container,
+.contact-info {
+  row-gap: 2rem; /* Add space between rows */
+}
+
+.contact-info {
+  color: var(--white-color); /* Set text color for the contact info */
+  text-align: center; /* Center-align the text */
+}
+
+.contact-title {
+  font-size: var(--h1-font-size); /* Set font size for the contact title */
+  margin-bottom: 0.5rem; /* Add margin below the title */
+}
+
+.contact-social {
+  display: flex; /* Display social links in a flex container */
+  justify-content: center; /* Center-align the social links */
+  column-gap: 1rem; /* Add space between each social link */
+}
+
+.social-link {
+  font-size: 1.5rem; /* Set font size for social media links */
+  color: var(--first-color); /* Set color for social media links */
+  transition: transform 0.5s; /* Add transition effect to transform property */
+}
+
+.social-link:hover {
+  transform: translateY(
+    -0.25rem
+  ); /* Move social media links slightly on hover */
+}
+
+.contact-address {
+  font-style: normal; /* Set normal font style for the address */
+}
+
+.contact-map {
+  color: var(--first-color); /* Set color for the contact map */
+  display: inline-flex; /* Display the map info in an inline flex container */
+  align-items: center; /* Align items to the center vertically */
+  column-gap: 0.5rem; /* Add space between map icon and text */
+  margin-top: 0.5rem; /* Add margin to the top of the map */
+  font-size: 1rem; /* Set font size for the map */
+}
+
+.contact-map span {
+  font-size: var(--small-font-size); /* Set font size for map text */
+  font-weight: var(--font-semi-bold); /* Set font weight to semi-bold */
+}
+
+.contact-images {
+  position: relative; /* Position images relative to their container */
+  display: grid; /* Use grid layout for the contact images */
+  justify-items: center; /* Center images horizontally */
+  justify-self: center; /* Center the image container */
+  margin-top: 3rem; /* Add margin to the top of the image container */
+}
+
+.contact-shape {
+  width: 300px; /* Set width of the circular shape */
+  height: 300px; /* Set height of the circular shape */
+  background-color: var(--first-color); /* Set background color of the shape */
+  border-radius: 50%; /* Create a circle shape */
+}
+
+.contact-delivery {
+  width: 230px; /* Set width of the delivery image */
+  position: absolute; /* Position absolutely within the contact images container */
+  top: -2.5rem; /* Position the delivery image above its normal position */
+  mask-image: linear-gradient(
+    /* Apply a linear gradient mask to the image */ to bottom,
+    var(--first-color) 80%,
+    /* Set the top 80% of the gradient to the first color */ transparent 100%
+      /* Make the bottom part transparent */
+  );
+}
+
+/*=============== FOOTER ===============*/
+
+.footer {
+  background-color: var(
+    --body-first-color
+  ); /* Set background color for the footer */
+  padding-block: 4rem 2rem; /* Add padding to the top and bottom of the footer */
+}
+
+.footer-container {
+  row-gap: 3rem; /* Add vertical spacing between footer elements */
+}
+
+.footer-title {
+  font-size: var(--h2-font-size); /* Set font size for the footer title */
+  color: var(--dark-color); /* Set text color for the footer title */
+  margin-bottom: 1rem; /* Add margin below the footer title */
+}
+
+.footer-social,
+.footer-payment,
+.footer-form {
+  display: flex; /* Use flexbox to display footer sections */
+  column-gap: 1rem; /* Add space between elements in each section */
+}
+
+.footer-social .social-link {
+  font-size: 1.5rem; /* Set font size for social media links */
+  color: var(--dark-color); /* Set color for social media links */
+  transition: transform 0.5s; /* Add smooth transition effect for hovering */
+}
+
+.footer-social .social-link:hover {
+  transform: translateY(
+    -0.25rem
+  ); /* Slight vertical movement when hovering over social links */
+}
+
+.footer-payment-card {
+  width: 30px; /* Set width for payment icons */
+}
+
+.footer-form {
+  background-color: var(
+    --dark-color
+  ); /* Set background color for the form section */
+  padding: 0.5rem; /* Add padding inside the form */
+}
+
+/* Form Inputs */
+
+.footer-input {
+  width: 100%; /* Set input fields to take up the full width */
+  background: transparent; /* Make input background transparent */
+  padding-left: 0.75rem; /* Add padding to the left of input fields */
+  color: var(--white-color); /* Set text color for input fields */
+  font-weight: var(--font-semi-bold); /* Set font weight for the input text */
+}
+
+.footer-input::placeholder {
+  color: var(--white-color); /* Set color for input field placeholder text */
+}
+
+.footer-button {
+  padding: 0.75rem 1.5rem; /* Add padding to the footer button */
+  color: var(--dark-color); /* Set button text color */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.footer-copyright {
+  display: block; /* Make the copyright text block-level */
+  margin-top: 4rem; /* Add margin to the top of the copyright section */
+  color: var(--dark-color); /* Set text color for the copyright */
+  text-align: center; /* Center-align the copyright text */
+  font-size: var(--small-font-size); /* Set small font size for the copyright */
+}
+
+.footer-copyright a {
+  color: var(--dark-color); /* Set color for links in the copyright section */
+  transition: all 0.5s; /* Add transition effect to link */
+}
+
+.footer-copyright a:hover {
+  color: var(--text-color); /* Change color when hovering over the link */
+  text-decoration: underline; /* Underline the link on hover */
+}
+
+/*=============== SCROLL BAR ===============*/
+
+/* For Chrome */
+
+::-webkit-scrollbar {
+  width: 0.6rem; /* Set the width of the scrollbar */
+  background-color: hsl(
+    166,
+    20%,
+    30%
+  ); /* Set background color of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(166, 20%, 40%); /* Set color for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(166, 20%, 50%); /* Change color of the thumb on hover */
+}
+
+/* For Firefox */
+
+::-moz-scrollbar {
+  width: 0.6rem; /* Set the width of the scrollbar in Firefox */
+  background-color: hsl(
+    166,
+    20%,
+    30%
+  ); /* Set background color of the scrollbar in Firefox */
+}
+
+::-moz-scrollbar-thumb {
+  background-color: hsl(
+    166,
+    20%,
+    40%
+  ); /* Set color for the scrollbar thumb in Firefox */
+}
+
+::-moz-scrollbar-thumb:hover {
+  background-color: hsl(
+    166,
+    20%,
+    50%
+  ); /* Change color of the thumb on hover in Firefox */
+}
+
+/*=============== SCROLL UP ===============*/
+
+.scrollup {
+  position: fixed; /* Position the scroll-up button at a fixed place */
+  right: 1rem; /* Position the scroll-up button 1rem from the right */
+  bottom: -50%; /* Initially hide the button by placing it off-screen */
+  background-color: var(
+    --body-color
+  ); /* Set background color for the scroll-up button */
+  box-shadow: 0 4px 8px hsla(166, 85%, 8%, 0.4); /* Add shadow to the scroll-up button */
+  color: var(--white-color); /* Set text color for the scroll-up button */
+  display: inline-flex; /* Display the button in an inline flex container */
+  padding: 6px; /* Add padding inside the scroll-up button */
+  font-size: 1.25rem; /* Set font size for the button text */
+  z-index: var(
+    --z-tooltip
+  ); /* Ensure the scroll-up button appears on top of other content */
+  transition: bottom 0.5s, transform 0.5s; /* Add transition effect for smooth movement */
+}
+
+.scrollup:hover {
+  transform: translateY(-0.5rem); /* Slight vertical movement on hover */
+}
+
+/* Show Scroll Up */
+
+.show-scroll {
+  bottom: 3rem; /* Move the scroll-up button into view when scrolling down */
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* For small devices */
+@media screen and (max-width: 330px) {
+  /* Adjustments for small devices */
+
+  .container {
+    margin-inline: 1rem; /* Add horizontal margin to the container */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Reduce font size for section titles */
+  }
+
+  .home-title {
+    font-size: 3.5rem; /* Adjust home title size for smaller screens */
+  }
+
+  .home-shape {
+    width: 250px;
+    height: 250px; /* Adjust home shape size */
+  }
+
+  .home-coffee {
+    width: 145px; /* Reduce the width of the home coffee image */
+  }
+
+  .home-splash {
+    width: 310px; /* Adjust splash image width */
+  }
+
+  .home-sticker {
+    top: 20rem; /* Position the sticker at a specific distance from the top */
+  }
+
+  .about-shape {
+    width: 250px;
+    height: 250px; /* Adjust the size of the about section shape */
+  }
+
+  .about-coffee {
+    width: 240px; /* Adjust about coffee image size */
+  }
+
+  .products-container {
+    grid-template-columns: 160px; /* Set product container to a single column */
+    justify-content: center; /* Center align products */
+  }
+
+  .contact-shape {
+    width: 250px;
+    height: 250px; /* Adjust contact shape size */
+  }
+
+  .contact-delivery {
+    width: 190px; /* Adjust delivery icon size */
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  /* Apply styles for screens 576px and larger (e.g., small tablets) */
+
+  .home-container,
+  .about-container {
+    grid-template-columns: 400px; /* Set containers to one column of 400px width */
+    justify-content: center; /* Center content within containers */
+  }
+
+  .products-container {
+    grid-template-columns: repeat(
+      2,
+      160px
+    ); /* Set products to display in 2 columns of 160px */
+    justify-content: center; /* Center align products */
+  }
+
+  .footer-form {
+    width: 350px; /* Adjust footer form width */
+  }
+}
+
+/* For larger medium devices */
+@media screen and (min-width: 768px) {
+  /* Apply styles for screens 768px and larger (e.g., tablets and small desktops) */
+
+  .home-sticker {
+    top: 30rem; /* Move the home sticker down */
+    right: 5rem; /* Move the home sticker to the right */
+    width: 80px; /* Adjust sticker width */
+  }
+
+  .popular-swiper {
+    width: 850px; /* Set width for popular swiper */
+    justify-self: center; /* Center swiper within its container */
+  }
+
+  .products-container {
+    grid-template-columns: repeat(3, 160px); /* Display products in 3 columns */
+    justify-content: center; /* Center align products */
+  }
+
+  .contact-container {
+    justify-content: center; /* Center align contact container */
+  }
+
+  .contact-info {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Divide contact info into 2 columns */
+    justify-content: center; /* Center align contact info */
+    column-gap: 6rem; /* Increase gap between columns */
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Display footer content in 2 columns */
+    justify-items: center; /* Center footer items */
+  }
+
+  .footer div:nth-child(3) {
+    grid-column: 1/3; /* Make the third footer item span across both columns */
+  }
+
+  .footer-title {
+    text-align: center; /* Center the footer title */
+  }
+}
+
+/*=============== LARGE DEVICES ===============*/
+/* For devices with screen width of 1150px and up (e.g., larger desktops and laptops) */
+
+@media screen and (min-width: 1150px) {
+  /* Centering the container */
+  .container {
+    margin-inline: auto;
+  }
+
+  /* Section padding adjustment for large screens */
+  .section {
+    padding-block: 7rem 5rem;
+  }
+
+  /* Adjusting space between section titles */
+  .section-title {
+    margin-bottom: 4rem;
+  }
+
+  /* Adjusting height of the navigation bar */
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  /* Hiding the toggle and close buttons for larger screens (assumed that desktop uses a static nav) */
+  .nav-toggle,
+  .nav-close {
+    display: none;
+  }
+
+  /* Making navigation list display in a row with spacing between items */
+  .nav-list {
+    flex-direction: row;
+    column-gap: 4rem;
+  }
+
+  /* Setting font size for nav links */
+  .nav-link {
+    font-size: var(--normal-font-size);
+  }
+
+  /* Home container adjusted to fit content within the max-width */
+  .home-container {
+    grid-template-columns: 970px;
+    max-width: 970px;
+    padding-top: 2.5rem;
+  }
+
+  /* Adjusting home shape size */
+  .home-shape {
+    width: 490px;
+    height: 490px;
+  }
+
+  /* Adjusting size and position of home coffee image */
+  .home-coffee {
+    width: 280px;
+    top: -6rem;
+  }
+
+  /* Adjusting splash image positioning */
+  .home-splash {
+    width: 615px;
+    left: -5rem;
+    bottom: 0.75rem;
+  }
+
+  /* Adjusting bean elements' size and positioning */
+  .home-bean-1,
+  .home-bean-2 {
+    width: 70px;
+  }
+  .home-bean-1 {
+    left: 3rem;
+    top: 3.5rem;
+  }
+  .home-bean-2 {
+    bottom: 10.75rem;
+    right: 6.5rem;
+  }
+
+  /* Adjusting ice elements size and positioning */
+  .home-ice-1 {
+    width: 90px;
+    left: 2.5rem;
+    bottom: 5rem;
+  }
+  .home-ice-2 {
+    width: 90px;
+    right: 2rem;
+    top: 6.5rem;
+  }
+
+  /* Adjusting leaf element size and positioning */
+  .home-leaf {
+    width: 90px;
+    right: 10rem;
+    bottom: -2.5rem;
+  }
+
+  /* Positioning and styling home data */
+  .home-data {
+    position: absolute;
+    top: 20rem;
+    left: 0;
+    width: 230px;
+    text-align: initial;
+    margin-top: 0;
+  }
+
+  /* Adjusting the description margin in home section */
+  .home-description {
+    margin-bottom: 6rem;
+  }
+
+  /* Adjusting sticker size and positioning */
+  .home-sticker {
+    width: 150px;
+    top: 23rem;
+    right: 0;
+  }
+
+  /* Adjusting popular container */
+  .popular-container {
+    padding-bottom: 2rem;
+  }
+
+  /* Popular swiper width */
+  .popular-swiper {
+    width: 1000px;
+  }
+
+  /* Adjusting popular card size */
+  .popular-card {
+    width: 280px;
+  }
+
+  /* Adjusting shape size for popular section */
+  .popular-shape {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Adjusting coffee size in popular section */
+  .popular-coffee {
+    width: 185px;
+    top: -2rem;
+  }
+
+  /* Positioning beans in popular section */
+  .popular-bean-1 {
+    width: 40px;
+    top: 4rem;
+    left: 0.75rem;
+  }
+  .popular-bean-2 {
+    width: 30px;
+    right: 2.5rem;
+    bottom: 2.5rem;
+  }
+
+  /* About section grid layout and column gap adjustments */
+  .about-container {
+    grid-template-columns: 430px 500px;
+    align-items: center;
+    column-gap: 6rem;
+    padding-block: 2rem;
+  }
+
+  /* About section text alignment */
+  .about-data,
+  .about .section-title {
+    text-align: initial;
+  }
+
+  /* Adjusting description margin in About section */
+  .about-description {
+    margin-bottom: 4rem;
+  }
+
+  /* Adjusting shape and coffee sizes in About section */
+  .about-shape {
+    width: 500px;
+    height: 500px;
+  }
+  .about-coffee {
+    width: 480px;
+  }
+
+  /* Adjusting leaf elements in About section */
+  .about-leaf-1,
+  .about-leaf-2 {
+    width: 85px;
+  }
+  .about-leaf-1 {
+    top: 0.75rem;
+    left: 6rem;
+  }
+  .about-leaf-2 {
+    top: 13rem;
+    right: 3.5rem;
+  }
+
+  /* Products container grid layout */
+  .products-container {
+    grid-template-columns: repeat(3, 250px);
+    gap: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Styling product cards */
+  .products-card {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  /* Shape size adjustment for products */
+  .product-shape {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* Adjusting coffee and ice element size and positioning for products */
+  .product-coffee {
+    width: 130px;
+  }
+  .product-ice-1 {
+    width: 50px;
+    left: 0.75rem;
+  }
+  .product-ice-2 {
+    width: 30px;
+    top: 5.5rem;
+    right: 1.5rem;
+  }
+
+  /* Adjusting product name and price font sizes */
+  .product-name,
+  .product-price {
+    font-size: var(--h2-font-size);
+  }
+
+  /* Product button positioning */
+  .product-button {
+    right: 1rem;
+    bottom: 2rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Contact section adjustments */
+  .contact .section-title {
+    font-size: var(--biggest-font-size);
+  }
+
+  /* Contact section grid layout */
+  .contact-container {
+    grid-template-columns: repeat(3, max-content);
+    align-items: flex-start;
+    column-gap: 3rem;
+  }
+
+  /* Contact info grid layout */
+  .contact-info {
+    grid-template-columns: max-content;
+    row-gap: 6rem;
+    margin-top: 7rem;
+  }
+
+  /* Adjusting contact title font size */
+  .contact-title {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1rem;
+  }
+
+  /* Styling contact social media links */
+  .contact-social {
+    column-gap: 1.5rem;
+  }
+
+  /* Adjusting contact images positioning */
+  .contact-images {
+    margin-top: 0;
+  }
+
+  /* Contact shape size */
+  .contact-shape {
+    width: 500px;
+    height: 500px;
+  }
+
+  /* Contact delivery size */
+  .contact-delivery {
+    width: 380px;
+    top: -3.5rem;
+  }
+
+  /* Footer container grid layout */
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Footer adjustments for alignment */
+  .footer-container div:nth-child(3) {
+    grid-column: initial;
+  }
+  .footer-container div:nth-child(2) {
+    order: 1;
+    justify-self: end;
+  }
+  .footer-container div:nth-child(1) {
+    justify-self: start;
+  }
+
+  /* Footer social and payment adjustments */
+  .footer-social,
+  .footer-payment {
+    margin-inline: auto;
+    justify-content: center;
+  }
+
+  /* Footer copyright margin */
+  .footer-copyright {
+    margin-top: 5rem;
+  }
+
+  /* Scroll-up button positioning */
+  .scrollup {
+    right: 3rem;
+  }
+}
+
+/*=============== 2K RESOLUTION ===============*/
+/* For 2K resolution displays (e.g., 2048 x 1152, 2048 x 1536) */
+@media screen and (min-width: 2048px) {
+  body {
+    zoom: 1.5; /* Zooms the body content for better readability on large screens */
+  }
+}

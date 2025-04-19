@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Defines the language of the document as English -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Specifies the character encoding as UTF-8, which includes most characters from all known languages -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures the page is responsive on different devices by setting the viewport properties -->
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- Specifies the favicon for the website, a small image shown on the browser tab -->
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <!-- Links to an external stylesheet for Remix icons, a library of vector icons -->
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+    <!-- Links to a local CSS file for Swiper, a popular JavaScript library for creating touch sliders -->
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Links to the main stylesheet for the website, responsible for custom styling -->
+
+    <!--=============== TITLE ===============-->
+    <title>Responsive coffee website</title>
+    <!-- The title displayed on the browser tab -->
+  </head>
+
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+      <!-- Defines the header section with a unique id for referencing -->
+      <nav class="nav container">
+        <!-- Navigation bar wrapped in a container class to limit width -->
+
+        <a href="#" class="nav-logo"> STARCOFFEE </a>
+        <!-- Logo link (could be a homepage link) -->
+
+        <div class="nav-menu" id="nav-menu">
+          <!-- Navigation menu container -->
+          <ul class="nav-list">
+            <!-- Unordered list of navigation items -->
+            <!-- Navigation item for Home -->
+            <li class="nav-item">
+              <a href="#home" class="nav-link active-link">Home</a>
+              <!-- Link to the home section, "active-link" class shows it's the active page -->
+            </li>
+
+            <!-- Navigation item for Popular -->
+            <li class="nav-item">
+              <a href="#popular" class="nav-link">Popular</a>
+              <!-- Link to the popular section -->
+            </li>
+
+            <!-- Navigation item for About Us -->
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About Us</a>
+              <!-- Link to the about section -->
+            </li>
+
+            <!-- Navigation item for Products -->
+            <li class="nav-item">
+              <a href="#products" class="nav-link">Products</a>
+              <!-- Link to the products section -->
+            </li>
+
+            <!-- Navigation item for Contact -->
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">Contact</a>
+              <!-- Link to the contact section -->
+            </li>
+          </ul>
+
+          <!-- Close button for the menu, visible when in mobile or compact view -->
+          <div class="nav-close" id="nav-close">
+            <i class="ri-close-large-line"></i>
+            <!-- Icon for closing the navigation menu -->
+          </div>
+        </div>
+
+        <!-- Burger menu (appears on smaller screens) -->
+        <div class="nav-toggle" id="nav-toggle">
+          <i class="ri-menu-3-line"></i>
+          <!-- Icon for opening the navigation menu on smaller screens -->
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!-- Main content section of the webpage -->
+
+      <!--==================== HOME ====================-->
+      <section class="home section" id="home">
+        <!-- Home section, typically the first section on the page -->
+        <div class="home-container container grid">
+          <!-- Container with grid layout for home section -->
+          <h1 class="home-title">COLD COFFEE</h1>
+          <!-- Main title for the home section -->
+
+          <div class="home-images images">
+            <!-- Container for home-related images -->
+            <div class="home-shape"></div>
+            <!-- Decorative shape element -->
+            <img
+              src="/assets/img/home-splash.png"
+              alt="Splash Image"
+              class="home-splash"
+            />
+            <!-- Splash image related to cold coffee -->
+            <img
+              src="/assets/img/bean-img.png"
+              alt="Bean Image"
+              class="home-bean-2"
+            />
+            <!-- Bean image for visual effect -->
+            <img
+              src="/assets/img/home-coffee.png"
+              alt="Coffee Image"
+              class="home-coffee"
+            />
+            <!-- Coffee image prominently displayed -->
+            <img
+              src="/assets/img/bean-img.png"
+              alt="Bean Image"
+              class="home-bean-1"
+            />
+            <!-- Another bean image for decoration -->
+            <img
+              src="/assets/img/ice-img.png"
+              alt="Ice Image"
+              class="home-ice-1"
+            />
+            <!-- Ice cube image for theme consistency -->
+            <img
+              src="/assets/img/ice-img.png"
+              alt="Ice Image"
+              class="home-ice-2"
+            />
+            <!-- Another ice cube image -->
+            <img
+              src="/assets/img/leaf-img.png"
+              alt="Leaf Image"
+              class="home-leaf"
+            />
+            <!-- Leaf image for aesthetic balance -->
+          </div>
+
+          <img
+            src="/assets/img/home-sticker.svg"
+            alt="Sticker Image"
+            class="home-sticker"
+          />
+          <!-- A fun, branded sticker graphic -->
+
+          <div class="home-data">
+            <!-- Container for description and call-to-action button -->
+            <p class="home-description">
+              Cold brew coffee is a form of brewed coffee made by forcing hot
+              water under pressure, typically around 195°F (92°C) or 205°F
+              (95°C), and then removing the steam. This results in a
+              concentrated coffee that retains its full flavor profile, without
+              the bitterness that accompanies hot brew coffee.
+            </p>
+
+            <a href="#about" class="home-button button">Discover More</a>
+            <!-- Button that links to the About section -->
+          </div>
+        </div>
+      </section>
+
+      <!--==================== POPULAR ====================-->
+
+      <section class="popular section" id="popular">
+        <!-- Popular creations section -->
+        <div class="popular-container container">
+          <!-- Container for the popular coffee items -->
+          <h2 class="section-title">
+            POPULAR <br />
+            CREATIONS
+          </h2>
+
+          <!-- Swiper (Image Slider) -->
+          <div class="popular-swiper swiper">
+            <!-- Swiper container for the sliding cards -->
+            <div class="swiper-wrapper">
+              <!-- Wrapper for the swiper slides -->
+
+              <!-- Coffee item 1: Vanilla Latte -->
+              <article class="popular-card swiper-slide">
+                <!-- Card for a popular coffee item -->
+                <div class="popular-images images">
+                  <!-- Container for images related to the coffee item -->
+                  <div class="popular-shape"></div>
+                  <!-- Decorative shape -->
+                  <img
+                    src="/assets/img/bean-img.png"
+                    alt="Bean Image"
+                    class="popular-bean-1"
+                  />
+                  <!-- Bean image -->
+                  <img
+                    src="/assets/img/bean-img.png"
+                    alt="Bean Image"
+                    class="popular-bean-2"
+                  />
+                  <!-- Another bean image -->
+                  <img
+                    src="/assets/img/popular-coffee-1.png"
+                    alt="Coffee Image"
+                    class="popular-coffee"
+                  />
+                  <!-- Image of Vanilla Latte -->
+                </div>
+
+                <div class="popular-data">
+                  <!-- Content for the coffee card -->
+                  <h2 class="popular-name">VANILLA LATTE</h2>
+                  <!-- Coffee name -->
+                  <p class="popular-description">
+                    Indulge in the simplicity of our delicious cold brew coffee.
+                  </p>
+                  <!-- Description of the item -->
+                  <a href="#contact" class="popular-button button button-dark">
+                    Order now: $19.90
+                  </a>
+                  <!-- Call-to-action button to order the item -->
+                </div>
+              </article>
+
+              <!-- Coffee item 2: Macchiato -->
+              <article class="popular-card swiper-slide">
+                <!-- Similar structure for other coffee items, each one has its image, name, description, and button -->
+                <div class="popular-images images">
+                  <div class="popular-shape"></div>
+                  <img
+                    src="/assets/img/bean-img.png"
+                    alt="Bean Image"
+                    class="popular-bean-1"
+                  />
+                  <img
+                    src="/assets/img/bean-img.png"
+                    alt="Bean Image"
+                    class="popular-bean-2"
+                  />
+                  <img
+                    src="/assets/img/popular-coffee-2.png"
+                    alt="Coffee Image"
+                    class="popular-coffee"
+                  />
+                </div>
+
+                <div class="popular-data">
+                  <h2 class="popular-name">MACCHIATO</h2>
+                  <p class="popular-description">
+                    A coffee with a hint of chocolate and caramel.
+                  </p>
+                  <a href="#contact" class="popular-button button button-dark">
+                    Order now: $24.90
+                  </a>
+                </div>
+              </article>
+
+              <!-- Coffee item 3: Caramel Latte -->
+              <article class="popular-card swiper-slide">
+                <div class="popular-images images">
+                  <div class="popular-shape"></div>
+                  <img
+                    src="/assets/img/bean-img.png"
+                    alt="Bean Image"
+                    class="popular-bean-1"
+                  />
+                  <img
+                    src="/assets/img/bean-img.png"
+                    alt="Bean Image"
+                    class="popular-bean-2"
+                  />
+                  <img
+                    src="/assets/img/popular-coffee-3.png"
+                    alt="Coffee Image"
+                    class="popular-coffee"
+                  />
+                </div>
+
+                <div class="popular-data">
+                  <h2 class="popular-name">CARAMEL LATTE</h2>
+                  <p class="popular-description">
+                    Indulge in the richness of our delicious cold brew coffee.
+                  </p>
+                  <a href="#contact" class="popular-button button button-dark">
+                    Order now: $29.90
+                  </a>
+                </div>
+              </article>
+
+              <!-- Additional popular coffee items follow similar structure for items 4-6 -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== ABOUT ====================-->
+
+      <section class="about section" id="about">
+        <!-- About section of the website -->
+        <div class="about-container container grid">
+          <!-- Grid container for the About content -->
+          <div class="about-data">
+            <!-- About section content (text) -->
+            <h2 class="section-title">
+              ABOUT <br />
+              STARCOFFEE
+            </h2>
+
+            <p class="about-description">
+              StarCoffee is a creative coffee company that specializes in
+              creating unique and innovative cold brew coffee beans. Our team of
+              experts has been working tirelessly to develop the best possible
+              coffee beans, ensuring that every cup of our coffee is a joy to
+              drink.
+            </p>
+
+            <a href="#popular" class="about-button button"
+              >Discover our products</a
+            >
+            <!-- Link to the popular coffee products section -->
+          </div>
+
+          <div class="about-images">
+            <!-- Images related to the about section -->
+            <div class="about-shape"></div>
+            <!-- Decorative shape -->
+            <img
+              src="/assets/img/leaf-img.png"
+              alt="Leaf Image"
+              class="about-leaf-1"
+            />
+            <!-- Leaf image -->
+            <img
+              src="/assets/img/leaf-img.png"
+              alt="Leaf Image"
+              class="about-leaf-2"
+            />
+            <!-- Another leaf image -->
+            <img
+              src="/assets/img/about-coffee.png"
+              alt="Coffee Image"
+              class="about-coffee"
+            />
+            <!-- Image of coffee related to the company -->
+          </div>
+        </div>
+      </section>
+
+      <!--==================== PRODUCTS ====================-->
+      <!-- Section for displaying the product lineup -->
+      <section class="products section" id="products">
+        <!-- Title of the section -->
+        <h2 class="section-title">
+          PRODUCTS <br />
+          LINEUP
+        </h2>
+
+        <div class="products-container container grid">
+          <!-- 1st Product -->
+          <article class="product-card">
+            <div class="product-images">
+              <!-- Decorative shapes for product display -->
+              <div class="product-shape"></div>
+              <!-- Images of the product (ice and coffee) -->
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-1"
+              />
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-2"
+              />
+              <img
+                src="/assets/img/products-coffee-1.png"
+                alt="Coffee Image"
+                class="product-coffee"
+              />
+            </div>
+
+            <div class="product-data">
+              <!-- Product name and price -->
+              <h3 class="product-name">ICED COFFEE MOCHA</h3>
+              <span class="product-price"> $15.90 </span>
+              <!-- Button to add product to cart or buy -->
+              <button class="product-button">
+                <i class="ri-shopping-bag-3-line"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- 2nd Product -->
+          <article class="product-card">
+            <div class="product-images">
+              <div class="product-shape"></div>
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-1"
+              />
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-2"
+              />
+              <img
+                src="/assets/img/products-coffee-2.png"
+                alt="Coffee Image"
+                class="product-coffee"
+              />
+            </div>
+
+            <div class="product-data">
+              <h3 class="product-name">ICED COFFEE VANILLA</h3>
+              <span class="product-price"> $14.90 </span>
+              <button class="product-button">
+                <i class="ri-shopping-bag-3-line"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- 3rd Product -->
+          <article class="product-card">
+            <div class="product-images">
+              <div class="product-shape"></div>
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-1"
+              />
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-2"
+              />
+              <img
+                src="/assets/img/products-coffee-3.png"
+                alt="Coffee Image"
+                class="product-coffee"
+              />
+            </div>
+
+            <div class="product-data">
+              <h3 class="product-name">ICED COFFEE CARAMEL</h3>
+              <span class="product-price"> $16.90 </span>
+              <button class="product-button">
+                <i class="ri-shopping-bag-3-line"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- 4th Product -->
+          <article class="product-card">
+            <div class="product-images">
+              <div class="product-shape"></div>
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-1"
+              />
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-2"
+              />
+              <img
+                src="/assets/img/products-coffee-4.png"
+                alt="Coffee Image"
+                class="product-coffee"
+              />
+            </div>
+
+            <div class="product-data">
+              <h3 class="product-name">ICED COFFEE MOCHA LATTE</h3>
+              <span class="product-price"> $20.90 </span>
+              <button class="product-button">
+                <i class="ri-shopping-bag-3-line"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- 5th Product -->
+          <article class="product-card">
+            <div class="product-images">
+              <div class="product-shape"></div>
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-1"
+              />
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-2"
+              />
+              <img
+                src="/assets/img/products-coffee-5.png"
+                alt="Coffee Image"
+                class="product-coffee"
+              />
+            </div>
+
+            <div class="product-data">
+              <h3 class="product-name">ICED COFFEE VANILLA LATTE</h3>
+              <span class="product-price"> $21.90 </span>
+              <button class="product-button">
+                <i class="ri-shopping-bag-3-line"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- 6th Product -->
+          <article class="product-card">
+            <div class="product-images">
+              <div class="product-shape"></div>
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-1"
+              />
+              <img
+                src="/assets/img/ice-img.png"
+                alt="Ice Image"
+                class="product-ice-2"
+              />
+              <img
+                src="/assets/img/products-coffee-6.png"
+                alt="Coffee Image"
+                class="product-coffee"
+              />
+            </div>
+
+            <div class="product-data">
+              <h3 class="product-name">ICED COFFEE CARAMEL LATTE</h3>
+              <span class="product-price"> $22.90 </span>
+              <button class="product-button">
+                <i class="ri-shopping-bag-3-line"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!--==================== CONTACT ====================-->
+      <!-- Section for contact information -->
+      <section class="contact section" id="contact">
+        <!-- Title of the section -->
+        <h2 class="section-title">CONTACT US</h2>
+
+        <div class="contact-container container grid">
+          <div class="contact-info grid">
+            <!-- Section for "Write Us" -->
+            <div class="">
+              <h3 class="contact-title">Write Us</h3>
+
+              <!-- Social media links for contact -->
+              <div class="contact-social">
+                <a href="#" target="_blank" class="social-link">
+                  <i class="ri-whatsapp-line"></i>
+                </a>
+
+                <a href="#" target="_blank" class="social-link">
+                  <i class="ri-mail-send-line"></i>
+                </a>
+
+                <a href="#" target="_blank" class="social-link">
+                  <i class="ri-telegram-2-line"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Location information -->
+            <div>
+              <h3 class="contact-title">Location</h3>
+
+              <address class="contact-address">
+                2204 - Chardonnay Drive - Seattle <br />
+                Washington - 98101
+              </address>
+
+              <!-- Link to map -->
+              <a
+                href="https://maps.app.goo.gl/iJKA5EaNdbPBLats9"
+                class="contact-map"
+              >
+                <i class="ri-map-pin-line"></i>
+                <span> View On Map </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Delivery and contact information -->
+          <div class="contact-info grid">
+            <div class="">
+              <h3 class="contact-title">Delivery</h3>
+
+              <address class="contact-address">
+                Monday - Friday: 9:00 AM - 6:00 PM <br />
+                Saturday & Sunday: 10:00 AM - 3:00 PM
+              </address>
+            </div>
+
+            <div class="">
+              <h3 class="contact-title">Contact</h3>
+
+              <address class="contact-address">
+                Phone: +1 (123) 456-7890 <br />
+                Email: 123@example.com
+              </address>
+            </div>
+          </div>
+
+          <!-- Contact-related image -->
+          <div class="contact-images">
+            <div class="contact-shape"></div>
+
+            <img
+              src="/assets/img/contact-delivery.png"
+              alt="Delivery Image"
+              class="contact-delivery"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+
+    <!-- Footer Section: Contains social media links, payment methods, and a subscription form -->
+    <footer class="footer">
+      <div class="footer-container container grid">
+        <!-- Follow Us Section: Social media links -->
+        <div class="">
+          <h3 class="footer-title">Follow Us</h3>
+
+          <!-- Social media links (Facebook, Instagram, Twitter) -->
+          <div class="footer-social">
+            <a href="#" target="_blank" class="social-link">
+              <i class="ri-facebook-box-line"></i>
+              <!-- Facebook icon -->
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+              <i class="ri-instagram-line"></i>
+              <!-- Instagram icon -->
+            </a>
+
+            <a href="#" target="_blank" class="social-link">
+              <i class="ri-twitter-x-line"></i>
+              <!-- Twitter icon -->
+            </a>
+          </div>
+        </div>
+
+        <!-- Payment Method Section: Display payment methods -->
+        <div class="">
+          <h3 class="footer-title">Payment Method</h3>
+
+          <div class="footer-payment">
+            <!-- Payment method icons (credit cards or other payment systems) -->
+            <img
+              src="/assets/img/footer-card-1.png"
+              alt="Payment Methods"
+              class="footer-payment-card"
+            />
+
+            <img
+              src="/assets/img/footer-card-2.png"
+              alt="Payment Methods"
+              class="footer-payment-card"
+            />
+
+            <img
+              src="/assets/img/footer-card-3.png"
+              alt="Payment Methods"
+              class="footer-payment-card"
+            />
+
+            <img
+              src="/assets/img/footer-card-4.png"
+              alt="Payment Methods"
+              class="footer-payment-card"
+            />
+          </div>
+        </div>
+
+        <!-- Subscribe for Offers Section: Email subscription form -->
+        <div class="">
+          <h3 class="footer-title">Subscribe For New Offers</h3>
+
+          <!-- Form to capture user email for subscription -->
+          <form action="/" class="footer-form">
+            <!-- Input for entering email -->
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="footer-input"
+              placeholder="Enter Your Email"
+              required
+            />
+
+            <!-- Submit button to subscribe -->
+            <button type="submit" class="footer-button button">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Copyright Information -->
+      <p class="footer-copyright">
+        &copy; 2024 - All Rights Reserved - Made by
+        <a href="https://www.templatemo.com/" target="_blank">TemplateMo</a>
+      </p>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+
+    <!-- Scroll-up button to quickly go to the top of the page -->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+      <!-- Arrow-up icon -->
+    </a>
+
+    <!--=============== SCROLLREVEAL ===============-->
+
+    <!-- External script for scroll reveal animations -->
+    <script src="/assets/js/scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+
+    <!-- External script for swiper (image carousel or slideshows) functionality -->
+    <script src="/assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+
+    <!-- External script for the main JavaScript functionalities of the page -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
