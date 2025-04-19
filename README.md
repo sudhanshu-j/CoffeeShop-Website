@@ -74,7 +74,7 @@ This project utilizes the following technologies:
 
 Check out the live demo of the Coffee Shop Website by clicking the link below! You can interact with the product carousel, scroll through animations, and explore all the features.
 
-🔗 **[Live Demo - Coffee Shop Website](https://your-live-demo-link.com)**
+🔗 **[Live Demo - Coffee Shop Website](https://starcofffee.netlify.app/)**
 
 Feel free to explore the design and functionality of the website, and see how the dynamic effects and interactive elements work in real-time.
 
